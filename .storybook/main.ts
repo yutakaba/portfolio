@@ -1,4 +1,4 @@
-import type { StorybookConfig } from "@storybook/nextjs-vite";
+import type { StorybookConfig } from "@storybook/nextjs";
 
 const config: StorybookConfig = {
   "stories": [
@@ -18,6 +18,22 @@ const config: StorybookConfig = {
   },
   "staticDirs": [
     "../public"
-  ]
+  ],
+  webpackFinal: async (config) => {
+    config.module?.rules?.push({
+      test: /\.tsx?$/,
+      use: [
+        {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-typescript', '@linaria'],
+          },
+        },
+      ],
+      exclude: /node_modules/,
+    });
+    return config;
+  },
 };
+
 export default config;
