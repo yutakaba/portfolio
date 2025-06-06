@@ -1,7 +1,9 @@
-import type { NextConfig } from "next";
+import withLinaria from 'next-with-linaria';
 
-const nextConfig: NextConfig = {
-  /* config options here */
+/** @type {import('next').NextConfig} */
+const config = {
+  reactStrictMode: true,
+  swcMinify: true,
 };
 
-export default nextConfig;
+export default withLinaria(config);

@@ -1,0 +1,22 @@
+{
+  "extends": ["stylelint-config-standard"],
+  "overrides": [
+    {
+      "files": ["src/**/*.{jsx,tsx}"]
+    }
+  ],
+  "customSyntax": "@linaria/postcss-linaria",
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "order/properties-alphabetical-order": true,
+    "color-hex-length": "long",
+    "declaration-block-no-shorthand-property-overrides": true,
+    "no-empty-source": null,
+    "no-descending-specificity": null,
+    "rule-empty-line-before": "never",
+    "block-no-empty": null,
+    "function-no-unknown": null,
+    "value-keyword-case": null,
+    "selector-class-pattern": null
+  }
+}
