@@ -26,7 +26,7 @@ export default function QuizPage() {
     <Container>
       {!showQuiz ? (
         <AnimatePresence mode="wait">
-          <motion.div
+          <motion.div 
             key={step}
             // 【初期状態】出現前のスタイル（ふわっと出てくる前）
             initial={{ opacity: 0, scale: 0.5 }}
@@ -41,10 +41,7 @@ export default function QuizPage() {
           </motion.div>
         </AnimatePresence>
       ) : (
-        <QuizArea>
-          <h2>クイズ開始！</h2>
-          <QuizTimer />
-        </QuizArea>
+        <QuizTimer />
       )}
     </Container>
   );
@@ -55,13 +52,15 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  background-color: #1a1a2e;
+  background-image: linear-gradient(rgba(0, 255, 135, 0.1) 1px, transparent 1px),
+  linear-gradient(90deg, rgba(0, 255, 135, 0.1) 1px, transparent 1px);
 `;
 
 const CountdownText = styled.h1`
   font-size: 64px;
   font-weight: bold;
+  color: aliceblue;
+  z-index: 1;
 `;
 
-const QuizArea = styled.div`
-  font-size: 24px;
-`;
