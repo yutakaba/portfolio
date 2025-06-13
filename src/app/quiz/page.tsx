@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { styled } from '@linaria/react';
-import QuizTimer from '@/components/quiz';
+import QuizTimer from '@/components/quiz/QuizTimer';
 
 export default function QuizPage() {
   const countdownItems = ['3', '2', '1', 'Start!'];
