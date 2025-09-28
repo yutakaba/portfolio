@@ -8,15 +8,21 @@ type Props = {
     href: string;
 }
 
-export default function Card({ title, description, image, href }: Props) {
+export default function Card({ 
+  title,
+  description,
+  image,
+  href
+}: Props) {
     return (
-        <Link href={href} passHref>
-            <StyledCard>
-                <StyledTitle>{title}</StyledTitle>
-                <StyledDescription>{description}</StyledDescription>
-                <img src={image} alt={title} />
-            </StyledCard>
-        </Link>
+      //passHrefは<Link> の子要素が <a> 以外のコンポーネントである場合に、href をその子に渡すために使うオプションです。
+      <Link href={href} passHref>
+          <StyledCard>
+              <StyledTitle>{title}</StyledTitle>
+              <StyledDescription>{description}</StyledDescription>
+              <img src={image} alt={title} />
+          </StyledCard>
+      </Link>
     )       
 }
 
