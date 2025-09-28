@@ -1,0 +1,7 @@
+app/
+(auth)/
+login/page.tsx // ログインフォーム
+(protected)/
+dashboard/
+layout.tsx // 認証チェック用
+page.tsx // ダッシュボード本体
