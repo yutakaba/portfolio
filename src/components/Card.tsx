@@ -2,30 +2,24 @@ import { styled } from '@linaria/react';
 import Link from 'next/link';
 
 type Props = {
-    title: string;
-    description: string;
-    image: string;
-    href: string;
-}
+  title: string;
+  description: string;
+  image: string;
+  href: string;
+};
 
-export default function Card({ 
-  title,
-  description,
-  image,
-  href
-}: Props) {
-    return (
-      //passHrefは<Link> の子要素が <a> 以外のコンポーネントである場合に、href をその子に渡すために使うオプションです。
-      <Link href={href} passHref>
-          <StyledCard>
-              <StyledTitle>{title}</StyledTitle>
-              <StyledDescription>{description}</StyledDescription>
-              <img src={image} alt={title} />
-          </StyledCard>
-      </Link>
-    )       
+export default function Card({ title, description, image, href }: Props) {
+  return (
+    //passHrefは<Link> の子要素が <a> 以外のコンポーネントである場合に、href をその子に渡すために使うオプションです。
+    <Link href={href} passHref>
+      <StyledCard>
+        <StyledTitle>{title}</StyledTitle>
+        <StyledDescription>{description}</StyledDescription>
+        <img src={image} alt={title} />
+      </StyledCard>
+    </Link>
+  );
 }
-
 
 const StyledCard = styled.div`
   background-color: rgb(220, 220, 220);

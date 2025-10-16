@@ -160,10 +160,7 @@ const TimerRing = styled.div`
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  background: conic-gradient(
-    #00ff00 var(--progress, 100%),
-    #333 0%
-  );
+  background: conic-gradient(#00ff00 var(--progress, 100%), #333 0%);
   mask: radial-gradient(transparent 65%, black 66%);
   -webkit-mask: radial-gradient(transparent 65%, black 66%);
 `;
