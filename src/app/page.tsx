@@ -3,31 +3,41 @@ import Card from '@/components/Card';
 
 export default function Home() {
   return (
-    <Container>
+    <>
       <Title>文系エンジニア</Title>
-      <Card
-        title="タイトル"
-        description="ここは説明です"
-        image="https://placehold.co/600x400"
-        href="/video"
-      />
-    </Container>
+      <CardContainer>
+        <Card
+          title="Reactチュートリアル"
+          description="ここは説明です"
+          image="https://placehold.co"
+          href="/video"
+        />
+        <Card
+          title="自己分析"
+          description="ここは説明です"
+          image="https://placehold.co"
+          href="/job"
+        />
+        <Card
+          title="コーディングテスト対策"
+          description="ここは説明です"
+          image="https://placehold.co"
+          href="/cording"
+        />
+      </CardContainer>
+    </>
   );
 }
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 100svh;
-  gap: 24px;
-  padding: 24px;
+const Title = styled.h1`
+  margin: 24px;
 `;
 
-const Title = styled.h1`
-  font-size: 36px;
-  font-weight: bold;
+const CardContainer = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 24px;
+  padding: 24px;
 `;
 
 const StyledLink = styled.p`
