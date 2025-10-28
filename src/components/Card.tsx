@@ -1,25 +1,36 @@
+'use client'
+
 import { styled } from '@linaria/react';
 import Link from 'next/link';
+import { TipsModal } from './Modal/Card/TipsModal';
 
 type Props = {
   title: string;
   description: string;
   image: string;
   href: string;
+  tips: string;
 };
 
-export default function Card({ title, description, image, href }: Props) {
+export default function Card({ title, description, image, href, tips }: Props) {
   return (
-    //passHrefは<Link> の子要素が <a> 以外のコンポーネントである場合に、href をその子に渡すために使うオプションです。
-    <Link href={href} passHref>
-      <StyledCard>
-        <StyledTitle>{title}</StyledTitle>
-        <StyledDescription>{description}</StyledDescription>
-        <img src={image} alt={title} />
-      </StyledCard>
-    </Link>
+    <StyledCardWrapper>
+      <TipsModal tipText={tips} />
+      <Link href={href} passHref>
+        <StyledCard>
+          <StyledTitle>{title}</StyledTitle>
+          <StyledDescription>{description}</StyledDescription>
+          <img src={image} alt={title} />
+        </StyledCard>
+      </Link>
+    </StyledCardWrapper>
   );
+  
 }
+
+const StyledCardWrapper = styled.div`
+  position: relative; /* 💡 Tipsボタンを右上に配置するため */
+`;
 
 const StyledCard = styled.div`
   background-color: rgb(220, 220, 220);

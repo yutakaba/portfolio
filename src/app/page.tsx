@@ -11,18 +11,21 @@ export default function Home() {
           description="ここは説明です"
           image="https://placehold.co"
           href="/video"
+          tips="ここはヒントです"
         />
         <Card
           title="自己分析"
           description="ここは説明です"
           image="https://placehold.co"
           href="/job"
+          tips="ここはヒントです"
         />
         <Card
           title="コーディングテスト対策"
           description="ここは説明です"
           image="https://placehold.co"
           href="/cording"
+          tips="ここはヒントです"
         />
       </CardContainer>
     </>
