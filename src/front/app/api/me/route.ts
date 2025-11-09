@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { verifyToken } from '@/lib/jwt';
+import { verifyToken } from '@/front/lib/jwt';
 
 export async function GET(req: Request) {
   const token = req.headers.get('cookie')?.split('token=')[1]?.split(';')[0];
