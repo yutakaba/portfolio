@@ -1,57 +1,28 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { styled } from "@linaria/react";
-import Link from "next/link";
-import { FlashCard } from "@/types/flashCards";
+import type { FlashCard } from "@/types/flashCards";
 
-export default function FlashcardsPage() {
+export default function FlashcardListPage() {
   const [cards, setCards] = useState<FlashCard[]>([]);
 
   useEffect(() => {
-    const stored = JSON.parse(localStorage.getItem("flashcards") || "[]");
-    setCards(stored);
+    fetch("http://localhost:8080/flashcards")
+      .then((res) => res.json())
+      .then((data) => setCards(data));
   }, []);
 
   return (
-    <Container>
-      <Header>
-        <h1>フラッシュカード一覧</h1>
-        <Link href="/flashcards/new">＋ 新規作成</Link>
-      </Header>
-
-      <List>
-        {cards.map((card) => (
-          <Card key={card.id}>
-            <strong>{card.front}</strong>
-            <p>{card.back}</p>
-          </Card>
-        ))}
-      </List>
-    </Container>
+    <div className="max-w-lg mx-auto mt-10">
+      <h1 className="text-2xl font-bold mb-4">フラッシュカード一覧</h1>
+      <ul className="space-y-3">
+      {(cards ?? []).map((card) => (
+        <li key={card.id} className="border p-3 rounded shadow-sm">
+          <p><strong>Q:</strong> {card.front}</p>
+          <p><strong>A:</strong> {card.back}</p>
+        </li>
+      ))}
+    </ul>
+    </div>
   );
 }
-
-const Container = styled.div`
-  max-width: 600px;
-  margin: 40px auto;
-`;
-
-const Header = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-`;
-
-const List = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 16px;
-`;
-
-const Card = styled.div`
-  background: #f5f5f5;
-  padding: 16px;
-  border-radius: 8px;
-`;

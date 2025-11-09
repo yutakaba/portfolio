@@ -13,6 +13,11 @@ var nextID = 1
 
 // 全件取得
 func GetFlashcards(c *gin.Context) {
+	// 空でも必ず [] を返すようにする
+	if len(flashcards) == 0 {
+		c.JSON(http.StatusOK, []models.FlashCard{})
+		return
+	}
 	c.JSON(http.StatusOK, flashcards)
 }
 
