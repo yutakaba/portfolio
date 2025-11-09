@@ -27,6 +27,13 @@ export default function Home() {
           href="/cording"
           tips="ここはヒントです"
         />
+        <Card
+          title="学習する"
+          description="ここは説明です"
+          image="https://placehold.co"
+          href="/study/flashCard"
+          tips="ここはヒントです"
+        />
       </CardContainer>
     </>
   );

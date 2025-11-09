@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { styled } from "@linaria/react";
 import Link from "next/link";
-import { FlashCard } from "@/types/flashcards";
+import { FlashCard } from "@/types/flashCards";
 
 export default function FlashcardsPage() {
   const [cards, setCards] = useState<FlashCard[]>([]);
